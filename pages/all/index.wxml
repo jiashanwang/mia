@@ -1,0 +1,47 @@
+<view class="all">
+    <view class="radioType">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+            </label>
+        </radio-group>
+    </view>
+    <view class="classification">
+        <text bindtap='dateClick' id="today" data-id="1" class="{{backgroundStatus == 1?'backgroundColor':''}}">今日</text>
+        <text bindtap='dateClick' id="week" data-id="2" class="{{backgroundStatus == 2?'backgroundColor':''}}">本周</text>
+        <text bindtap='dateClick' id="month" data-id="3" class="{{backgroundStatus == 3?'backgroundColor':''}}">本月</text>
+        <text bindtap='dateClick' id="year" data-id="4" class="{{backgroundStatus == 4?'backgroundColor':''}}">全年</text>
+    </view>
+    <view class="list">
+        <block>
+            <view class="item itemHead">
+                <view class="itemCnt itemCnt1">
+                    <text>姓名</text>
+                </view>
+                <view class="itemCnt itemCnt2">
+                    <text wx:if="{{status == 'amount'}}">金额</text>
+                    <text wx:else>笔数</text>
+                </view>
+                <view class="itemCnt itemCnt2">
+                    <text>节省</text>
+                </view>
+            </view>
+        </block>
+        <block wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+            <view class="item" bindtap="onDetails" data-userid="{{item.userid}}">
+                <view class="itemCnt itemCnt1" >
+                    <text>{{item.username}}</text>
+                </view>
+                <view class='itemCnt1 itemCnt2'>
+                    <text wx:if="{{status == 'amount'}}">{{item.totalPrice}}</text>
+                    <text wx:else>{{item.number}}</text>
+                </view>
+                 <view class="itemCnt1 itemCnt2 itemCnt3">
+                    <text>{{item.rebate}}</text>
+                </view>
+
+            </view>
+        </block>
+    </view>
+
+</view>

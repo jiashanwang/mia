@@ -1,0 +1,66 @@
+.addInfo .title {
+    text-align: center;
+    color: green;
+    margin: 40rpx 10rpx;
+}
+
+.addInfo .section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30rpx 10rpx;
+}
+
+.addInfo .section input {
+    border: 1px solid green;
+    border-radius: 6px;
+    padding: 0 16rpx;
+    /* padding:10rpx; */
+}
+
+.addInfo .section text {
+    margin-right: 20rpx;
+    font-size:40rpx;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.addInfo .btn-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.addInfo .btn-area button {
+    margin-bottom: 30rpx;
+}
+
+/* .addInfo .btn-area button:first-child {
+    /* margin-top: 40rpx; */
+/* }  */
+
+.section view {
+    width: 150rpx;
+    text-align: right;
+    margin-right: 20rpx;
+}
+.addInfo .section input.errorTip {
+    border: 0;
+    color: #f00;
+    font-size: 30rpx;
+}
+.errorSection{
+    margin:0;
+}
+.section__title{
+    height:70rpx;
+    line-height:70rpx;
+    font-size:40rpx;
+}
+.section_input{
+    height:70rpx;
+}
+.addInfoHead{
+    font-weight:bold;
+}
+

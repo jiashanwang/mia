@@ -1,0 +1,44 @@
+/* pages/my/index.wxss */
+.my .header {
+    display:flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top:50rpx;
+    margin-left:50rpx;
+    margin-bottom:30rpx;
+}
+.my .header .headerImg{
+    width:100rpx;
+    height:100rpx;
+    border-radius: 50%;
+    margin-right:20rpx;
+}
+.my .header .headerText{
+    height:100rpx;
+    line-height: 100rpx;
+}
+.my .users{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.my .users .AmountTotal,.my .users .userTotal,.my .users .orderTotal{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align:center;
+}
+.my .users .name{
+    font-size:25rpx;
+    margin-bottom:5rpx;
+}
+.my .users .number{
+    font-weight: bold;
+}
+.my .wxPublic {
+    margin:0 auto;   
+    text-align:center;
+}
+.my .wxPublic .publicImg{
+    height:600rpx;
+}

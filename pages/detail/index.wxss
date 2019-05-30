@@ -1,0 +1,53 @@
+/* pages/detail/index.wxss */
+
+.detail .detailTitle {
+    text-align: center;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+    color: #1aad19;
+}
+
+.detail .productList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10rpx 5rpx;
+}
+
+.detail .productList text {
+    width: 20%;
+    text-align: center;
+}
+#productListHead text {
+ color:#ffffff;
+}
+
+#productListHead {
+    background: #1aad19;
+    margin-bottom: 10rpx;
+}
+
+#productListBody {
+    background: #ecf8ff;
+    margin-bottom: 10rpx;
+}
+
+.detail .productList .productName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.detail .footer{
+    position:fixed;
+    bottom:25rpx;
+    width:20%;
+    left:40%;
+    color:#1aad19;
+}
+.detail .rebate {
+    color:#ff0000;
+}
+.detailTitleHead{
+    font-weight:bold;
+    margin-bottom:40rpx;
+}

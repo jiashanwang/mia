@@ -1,0 +1,29 @@
+<view class="fenbu">
+    <view class="radioType">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+            </label>
+        </radio-group>
+    </view>
+    <view class="classification">
+        <text bindtap='dateClick' id="today" data-id="1" class="{{backgroundStatus == 1?'backgroundColor':''}}">今日</text>
+        <text bindtap='dateClick' id="week" data-id="2" class="{{backgroundStatus == 2?'backgroundColor':''}}">本周</text>
+        <text bindtap='dateClick' id="month" data-id="3" class="{{backgroundStatus == 3?'backgroundColor':''}}">本月</text>
+        <text bindtap='dateClick' id="year" data-id="4" class="{{backgroundStatus == 4?'backgroundColor':''}}">全年</text>
+    </view>
+    <!-- <view class="container">
+        <web-view src="https://www.highcharts.com.cn/samples/highcharts"></web-view>
+
+    </view> -->
+    <!-- 用于存放echarts 折线图 -->
+    <!-- <view wx:if="{{columHidden}}" class="nodata">
+        <text> 暂无数据 </text>
+    </view> -->
+    <!-- <view class="echart_panel">
+        <ec-canvas ec="{{ ecLine }}"></ec-canvas>
+    </view> -->
+    <view class="container">
+        <ec-canvas id="mychart-dom-line" canvas-id='mychart-line' ec="{{ec}}"></ec-canvas>
+    </view>
+</view>

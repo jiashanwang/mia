@@ -1,0 +1,49 @@
+{
+    "pages": [
+        "pages/addInfo/index",
+        "pages/fenbu/index",
+        "pages/my/index",
+        "pages/index/index",
+        "pages/all/index",
+        "pages/logs/logs",
+        "pages/detail/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#abd0bc",
+        "navigationBarTitleText": "蜜芽M+联盟",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "color": "#a9b7b7",
+        "selectedColor": "#11cd6e",
+        "borderStyle": "white",
+        "list": [
+            {
+                "selectedIconPath": "images/add1.png",
+                "iconPath": "images/add.png",
+                "pagePath": "pages/addInfo/index",
+                "text": "添加"
+            },
+            {
+                "selectedIconPath": "images/all1.png",
+                "iconPath": "images/all.png",
+                "pagePath": "pages/all/index",
+                "text": "总览"
+            },
+            {
+                "selectedIconPath": "images/fenbu1.png",
+                "iconPath": "images/fenbu.png",
+                "pagePath": "pages/fenbu/index",
+                "text": "分布"
+            },
+            {
+                "selectedIconPath": "images/my1.png",
+                "iconPath": "images/my.png",
+                "pagePath": "pages/my/index",
+                "text": "我的"
+            }
+        ]
+    }
+}

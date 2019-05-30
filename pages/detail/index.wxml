@@ -1,0 +1,29 @@
+<view class="detail">
+    <view class="detailTitle">
+        <text class="detailTitleHead">当前用户的所有购买记录如下所示</text>
+    </view>
+    <block>
+        <view class="productList" id="productListHead">
+            <text>日期</text>
+            <text>名称</text>
+            <text>数量</text>
+            <text>单价</text>
+            <text>总价</text>
+            <text class="rebate">返佣</text>
+        </view>
+    </block>
+    <block wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+        <view class="productList" id="productListBody">
+            <text>{{item.datetimes}}</text>
+            <text class="productName">{{item.product}}</text>
+            <text>{{item.number}}</text>
+            <text>{{item.price}}</text>
+            <text>{{item.totalPrice}}</text>
+            <text class="rebate">{{item.rebate}}</text>
+        </view>
+
+    </block>
+    <view  class="footer">
+        <text>详细信息</text>
+    </view>
+</view>

@@ -1,0 +1,55 @@
+/* pages/all/index.wxss */
+
+.all .radioType {
+    text-align: right;
+    margin-right: 20rpx;
+    margin-top: 30rpx;
+}
+
+.all .radioType label {
+    margin-left: 30rpx;
+}
+
+.all .classification {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20rpx;
+}
+
+.all .backgroundColor {
+    color: #1aad19;
+}
+
+.list {
+    margin-top: 30rpx;
+}
+
+.list .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: #ecf8ff;
+    padding: 10rpx 5rpx;
+    margin-bottom: 10rpx;
+}
+
+.list .itemHead {
+    background: #1aad19;
+    color: #fff;
+}
+
+.list .itemCnt {
+    width: 120rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+.list .itemCnt2{
+    width:120rpx;
+    text-align:center;
+}
+.list .itemCnt3{
+   color:#ff0000;
+}

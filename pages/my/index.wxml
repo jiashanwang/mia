@@ -1,0 +1,24 @@
+<view class="my">
+    <view class="header">
+        <image class="headerImg" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname headerText">{{userInfo.nickName}}</text>
+    </view>
+    <view class="users">
+        <view class="AmountTotal">
+            <text class="name">订单金额</text>
+            <text class="number">{{userData.totalPrice}}</text>
+        </view>
+        <view class="userTotal">
+            <text class="name">粉丝数量</text>
+            <text class="number">{{userData.userCount}}</text>
+        </view>
+        <view class="orderTotal">
+            <text class="name">订单笔数</text>
+            <text class="number">{{userData.totalNumber}}</text>
+        </view>
+    </view>
+    <view class="wxPublic">
+        <!-- <image class="publicImg" src="../../images/wx.png" mode="cove"></image> -->
+        <image class="publicImg" src="../../images/gongzhonghao.png" mode="widthFix" data-src="../../images/wx.png" bindtap="previewImage"></image>
+    </view>
+</view>

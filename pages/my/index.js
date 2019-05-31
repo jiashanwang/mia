@@ -20,7 +20,6 @@ Page({
         wx.getUserInfo({
             success: res => {
                 app.globalData.userInfo = res.userInfo;
-                console.log(res.userInfo);
                 this.setData({
                     userInfo: res.userInfo,
                 })
@@ -40,7 +39,6 @@ Page({
         };
         var promise = getServer(options);
         promise.then(function (results) {
-            console.log(results);
             if(results.data.statusCode == 200){
                 _this.setData({
                     userData:results.data.data
@@ -50,7 +48,6 @@ Page({
     },
     previewImage:function (e){
         var current = e.target.dataset.src;
-        console.log(current);
         wx.previewImage({
             current: current,
             urls: [current]

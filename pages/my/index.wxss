@@ -31,13 +31,17 @@
 .my .users .name{
     font-size:25rpx;
     margin-bottom:5rpx;
+    /* font-weight: bold; */
 }
 .my .users .number{
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .my .wxPublic {
     margin:0 auto;   
     text-align:center;
+    /* margin-top:250rpx; */
+    color:green;
+    font-weight:bold;
 }
 .my .wxPublic .publicImg{
     height:600rpx;

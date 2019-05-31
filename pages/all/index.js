@@ -14,13 +14,14 @@ Page({
         ],
         status: "amount", //  默认显示金额
         backgroundStatus: 1, // 1：今日 2：本周 3：本月 4：全年,
-        list: []
+        list: [],
+        currUserName:"",
+        userInfo:{}
     },
     /**
      * 金额和笔数的切换事件
      */
     radioChange: function (e) {
-        console.log('radio发生change事件，携带value值为：', e.detail.value)
         this.setData({
             status: e.detail.value
         });
@@ -54,18 +55,18 @@ Page({
                 });
                 break;
         };
+        var domain = _this.data.currUserName;
         var options = {
             url: config.baseUrl + "/queryByDateType",
             method: "POST",
             data: {
                 status: status,
-                dateType: id
+                dateType: id,
+                domainId: domain
             }
         };
         var promise = getServer(options);
         promise.then(function (results) {
-            console.log("请求成功返回数据为：");
-            console.log(results);
             if (results.data.statusCode == 200) {
                 // 请求成功
                 _this.setData({
@@ -81,10 +82,7 @@ Page({
      * 每条数据的点击事件
      */
     onDetails: function (e) {
-        console.log("每条数据的点击事件");
-        console.log(e);
         var currentUserid = e.currentTarget.dataset.userid;
-        console.log(currentUserid);
         wx.navigateTo({
             url: '../detail/index?userid=' + currentUserid,
             success: function () {
@@ -100,7 +98,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
     },
 
     /**
@@ -108,54 +105,64 @@ Page({
      */
     onReady: function () {
         var _this = this;
-        var status = this.data.status;
-        var id = 1; // 默认展示今天的
-        var params = {
-            status: status,
-            dateType: id
-        };
-
-        var options = {
-            url: config.baseUrl + "/queryByDateType",
-            method: "POST",
-            data: params,
-        };
-        var promise = getServer(options);
-        promise.then(function (results) {
-            console.log("请求成功返回数据为：");
-            console.log(results);
-            if (results.data.statusCode == 200) {
-                // 请求成功
+        wx.getStorage({
+            key: 'userInfo',
+            success: function(res) {
+                console.log(res);
+                console.log("getStorage回调里面的方法为：00");
+                var domain = res.data.nickName;
                 _this.setData({
-                    list: results.data.data.splice(0, 8)
+                    currUserName:domain
                 });
-                console.log(results.data.data);
-                var list = results.data.data;
-                var xData = [];
-                var dataAmount = [];
-                var dataNumber = [];
-                for (var i = 0; i < list.length; i++) {
-                    xData.push(list[i].username);
-                    dataAmount.push(list[i].totalPrice);
-                    dataNumber.push(list[i].number);
+                var status = _this.data.status;
+                console.log(domain);
+                var id = 1; // 默认展示今天的
+                var params = {
+                    status: status,
+                    dateType: id,
+                    domainId: domain
                 };
-                wx.setStorage({
-                    key: 'xData',
-                    data: xData,
-                });
-                wx.setStorage({
-                    key: 'dataAmount',
-                    data: dataAmount,
-                });
-                wx.setStorage({
-                    key: 'dataNumber',
-                    data: 'dataNumber',
+                var options = {
+                    url: config.baseUrl + "/queryByDateType",
+                    method: "POST",
+                    data: params,
+                };
+                var promise = getServer(options);
+                promise.then(function (results) {
+                    if (results.data.statusCode == 200 && results.data.length !=0) {
+                        // 请求成功
+                        _this.setData({
+                            list: results.data.data.splice(0, 8)
+                        });
+                        var list = results.data.data;
+                        var xData = [];
+                        var dataAmount = [];
+                        var dataNumber = [];
+                        for (var i = 0; i < list.length; i++) {
+                            xData.push(list[i].username);
+                            dataAmount.push(list[i].totalPrice);
+                            dataNumber.push(list[i].number);
+                        };
+                        wx.setStorage({
+                            key: 'xData',
+                            data: xData,
+                        });
+                        wx.setStorage({
+                            key: 'dataAmount',
+                            data: dataAmount,
+                        });
+                        wx.setStorage({
+                            key: 'dataNumber',
+                            data: 'dataNumber',
+                        })
+                    } else {
+                        // 失败
+                        console.log("暂无数据");
+                    }
                 })
-            } else {
-                // 失败
-                console.log("请求失败");
-            }
-        })
+            },
+        });
+    
     },
 
     /**

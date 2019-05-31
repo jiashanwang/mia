@@ -19,7 +19,7 @@
             <text>{{item.number}}</text>
             <text>{{item.price}}</text>
             <text>{{item.totalPrice}}</text>
-            <text class="rebate">{{item.rebate}}</text>
+            <text class="rebate">{{item.rebate * item.number}}</text>
         </view>
 
     </block>

@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 const baseUrl = "https://mia-conversion.gooalgene.com";
-// const baseUrl = "http://localhost:3011/";
+// const baseUrl = "http://localhost:3000";
 module.exports = {
   formatTime: formatTime,
     baseUrl:baseUrl

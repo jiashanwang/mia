@@ -15,9 +15,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log("详情页 onload 周期函数");
         var _this = this;
-        console.log(options);
         this.setData({
             userid: options.userid
         });
@@ -30,8 +28,6 @@ Page({
         };
         var promise = getServer(options);
         promise.then(function (res) {
-            console.log("商品详情页请求如下：");
-            console.log(res);
             if (res.data.statusCode == 200) {
                 _this.setData({
                     list: res.data.data

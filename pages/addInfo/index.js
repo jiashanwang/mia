@@ -31,6 +31,8 @@ Page({
             return;
         };
         var data  = e.detail.value;
+        data.username = this.data.userInfo.nickName;
+        // data.username = "蓝天";
         var options = {
             url:config.baseUrl + "/saveInfo",
             method:"POST",
@@ -38,8 +40,6 @@ Page({
         };
         var promise = getServer(options);
         promise.then(function (res){
-            console.log("提交事件的返回值为：");
-            console.log(res);
            if(res.data.statusCode == 200){
                wx.showToast({
                    title: '成功',
@@ -63,51 +63,17 @@ Page({
      */
     onLoad: function (options) {
         // 获取用户信息
+        var _this = this;
         wx.getUserInfo({
             success: res => {
                 app.globalData.userInfo = res.userInfo;
-                console.log("onLoad 获取用户数据");
                 console.log(res.userInfo);
-                this.setData({
+                wx.setStorage({key:'userInfo', data:res.userInfo});
+                _this.setData({
                     userInfo: res.userInfo,
                 })
             }
         });
-        // wx.login({
-        //     success: res => {
-        //         // ------ 获取凭证 ------
-        //         var code = res.code;
-        //         console.log(code);
-        //         var APPID = "wx7efa2624e024a128";
-        //         var SECRET = "5e934ad57f4a67f155ab751929ca540e";
-        //         var url = "https://api.weixin.qq.com/sns/jscode2session?appid='+APPID+'&secret='+SECRET+'&js_code='+code+'&grant_type=authorization_code'";
-        //         if (code) {
-        //             // console.log('获取用户登录凭证：' + code);
-        //             // ------ 发送凭证 ------
-        //             wx.request({
-        //                 url: url,
-        //                 data: {},
-        //                 method: 'GET',
-        //                 header: {
-        //                     'content-type': 'application/json'
-        //                 },
-        //                 success: function (res) {
-        //                     console.log(res);
-        //                     if (res.statusCode == 200) {
-        //                         console.log("获取到的openid为：" + res.data);
-        //                         console.log(res.data);
-        //                         // that.globalData.openid = res.data
-        //                         wx.setStorageSync('openid', res.data)
-        //                     } else {
-        //                         console.log(res.errMsg)
-        //                     }
-        //                 },
-        //             })
-        //         } else {
-        //             console.log('获取用户登录失败：' + res.errMsg);
-        //         }
-        //     }
-        // })
     },
 
     /**

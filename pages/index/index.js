@@ -11,15 +11,12 @@ Page({
     },
     //事件处理函数
     bindViewTap: function() {
-        console.log("图片点击事件");
         wx.navigateTo({
             url: '../addInfo/index'
         });
     },
     onLoad: function() {
         if (app.globalData.userInfo) {
-            console.log("app.globalData.userInfo");
-            console.log(app.globalData.userInfo);
             wx.setStorage({
                 key: 'userInfo',
                 data: app.globalData.userInfo,
@@ -31,12 +28,9 @@ Page({
 
             })
         } else if (this.data.canIUse) {
-            console.log("2")
             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
             // 所以此处加入 callback 以防止这种情况
             app.userInfoReadyCallback = res => {
-                console.log("res.userinfo");
-                console.log(res.userInfo);
                 wx.setStorage({
                     key: 'userInfo',
                     data: res.userInfo,
@@ -51,11 +45,9 @@ Page({
             // 获取用户信息
             //   this.getUserInfo();
         } else {
-            console.log("3")
             // 在没有 open-type=getUserInfo 版本的兼容处理
             wx.getUserInfo({
                 success: res => {
-                    console.log("res.userInfo33");
                     app.globalData.userInfo = res.userInfo
                     wx.setStorage({
                         key: 'userInfo',

@@ -22,20 +22,22 @@ Page({
                 app.globalData.userInfo = res.userInfo;
                 this.setData({
                     userInfo: res.userInfo,
-                })
+                });
+                // 获取订单金额以及粉丝数量
+                this.getAll(res.userInfo);
             }
         });
-        // 获取订单金额以及粉丝数量
-        this.getAll();
     },
     /**
      * 获取所有用户信息
      */
-    getAll:function (){
+    getAll:function (userInfo){
         var _this = this;
+        console.log(userInfo);
         var options = {
             url: config.baseUrl + "/getAll",
-            method: "GET",
+            method: "POST",
+            data:{domainId:userInfo.nickName}
         };
         var promise = getServer(options);
         promise.then(function (results) {

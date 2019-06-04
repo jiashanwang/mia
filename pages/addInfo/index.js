@@ -10,7 +10,9 @@ Page({
         name: "", // 微信名
         phone: 0, // 手机号
         phoneStatus: -1, // 手机号初始值 1:不能为空，2：格式不对，
-        userInfo:{}
+        userInfo:{},
+        hasUserInfo: false,
+        canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
     /**
      * 提交事件
@@ -67,6 +69,7 @@ Page({
         wx.getUserInfo({
             success: res => {
                 app.globalData.userInfo = res.userInfo;
+                console.log("res.userInfo");
                 console.log(res.userInfo);
                 wx.setStorage({key:'userInfo', data:res.userInfo});
                 _this.setData({
@@ -75,7 +78,6 @@ Page({
             }
         });
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

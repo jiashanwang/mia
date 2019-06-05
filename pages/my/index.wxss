@@ -46,3 +46,6 @@
 .my .wxPublic .publicImg{
     height:600rpx;
 }
+.my .wxPublic .desc{
+    margin-top:400rpx;
+}

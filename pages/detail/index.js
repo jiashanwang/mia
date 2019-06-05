@@ -19,14 +19,14 @@ Page({
         this.setData({
             userid: options.userid
         });
-        var options = {
+        var option = {
             url: config.baseUrl + "/getByPhone",
             method: "POST",
             data: {
                 userid: options.userid
             }
         };
-        var promise = getServer(options);
+        var promise = getServer(option);
         promise.then(function (res) {
             if (res.data.statusCode == 200) {
                 _this.setData({

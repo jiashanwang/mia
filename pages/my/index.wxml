@@ -19,9 +19,12 @@
     </view>
     <view class="wxPublic">
         <!-- <image class="publicImg" src="../../images/wx.png" mode="cove"></image> -->
-        <image class="publicImg" src="../../images/gongzhonghao.png" mode="widthFix" data-src="../../images/wx.png" bindtap="previewImage"></image>
-        <text>
-            自用省钱 分享赚钱
-        </text>
+        <!-- <image class="publicImg" src="../../images/gongzhonghao.png" mode="widthFix" data-src="../../images/wx.png" bindtap="previewImage"></image>-->
+         <view class="desc">
+            <!-- 自用省钱 分享赚钱 -->
+            <!-- 无自用 不分享 -->
+            <!-- M + 联盟  -->
+            Make More Money
+        </view>
     </view>
 </view>

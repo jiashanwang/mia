@@ -34,7 +34,6 @@ Page({
         };
         var data  = e.detail.value;
         data.username = this.data.userInfo.nickName;
-        // data.username = "蓝天";
         var options = {
             url:config.baseUrl + "/saveInfo",
             method:"POST",

@@ -77,6 +77,7 @@ Page({
      * 单选框的点击事件
      */
     radioChange: function(res) {
+        debugger;
         this.setData({
             status: res.detail.value
         });
@@ -110,7 +111,8 @@ Page({
             method: "POST",
             data: {
                 status: status,
-                dateType: id
+                dateType: id,
+                domainId: _this.data.currUserName
             }
         };
         var promise = getServer(options);

@@ -37,7 +37,8 @@
                     <text wx:else>{{item.number}}</text>
                 </view>
                  <view class="itemCnt1 itemCnt2 itemCnt3">
-                    <text>{{item.rebate * item.number}}</text>
+                    <!-- <text>{{item.rebate * item.number}}</text> -->
+                    <text>{{item.totalRebate}}</text>
                 </view>
 
             </view>

@@ -12,11 +12,13 @@ Page({
             { name: "amount", value: "金额", checked: "true" },
             { name: "number", value: "笔数" }
         ],
+        searchPath:"../../images/search1.png",
         status: "amount", //  默认显示金额
         backgroundStatus: 1, // 1：今日 2：本周 3：本月 4：全年,
         list: [],
         currUserName:"",
-        userInfo:{}
+        userInfo:{},
+        inputValue:""
     },
     /**
      * 金额和笔数的切换事件
@@ -25,6 +27,20 @@ Page({
         this.setData({
             status: e.detail.value
         });
+    },
+    /**
+     * 获取搜索输入框的值
+     */
+    bindKeyInput: function (e) {
+        this.setData({
+            inputValue: e.detail.value
+        })
+    },
+    /**
+     * 微信名称的模糊搜索
+     */
+    wxnameClick:function (e){
+        
     },
     /**
      * 日期类型的点击事件
@@ -62,7 +78,8 @@ Page({
             data: {
                 status: status,
                 dateType: id,
-                domainId: domain
+                domainId: domain,
+                wxName: _this.data.inputValue
             }
         };
         var promise = getServer(options);
@@ -120,7 +137,8 @@ Page({
                 var params = {
                     status: status,
                     dateType: id,
-                    domainId: domain
+                    domainId: domain,
+                    wxName:_this.data.inputValue
                 };
                 var options = {
                     url: config.baseUrl + "/queryByDateType",

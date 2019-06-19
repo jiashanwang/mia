@@ -46,10 +46,40 @@
     white-space: nowrap;
     text-align: left;
 }
-.list .itemCnt2{
-    width:120rpx;
-    text-align:center;
+
+.list .itemCnt2 {
+    width: 120rpx;
+    text-align: center;
 }
-.list .itemCnt3{
-   color:#ff0000;
+
+.list .itemCnt3 {
+    color: #f00;
+}
+
+.section {
+    margin-top:20rpx;
+    margin-bottom:20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    
+}
+
+.section input {
+    border: 1px solid green;
+    padding: 2rpx 20rpx;
+    padding-left: 30rpx;
+    border-radius: 25rpx;
+}
+
+.section .search {
+    width: 64rpx;
+    height: 64rpx;
+    margin-left:20rpx;
+    margin-right:10rpx;
+    color:green;
+}
+
+.search .searchInput {
+    width: 200rpx;
 }

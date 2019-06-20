@@ -1,11 +1,10 @@
 {
     "pages": [
-        "pages/all/index",
         "pages/index/index",
         "pages/addInfo/index",
         "pages/fenbu/index",
         "pages/my/index",
-     
+        "pages/all/index",
         "pages/logs/logs",
         "pages/detail/index"
     ],

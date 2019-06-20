@@ -32,23 +32,15 @@ Page({
      * 获取搜索输入框的值
      */
     bindKeyInput: function (e) {
+        console.log(e.detail.value);
         this.setData({
             inputValue: e.detail.value
         })
     },
     /**
-     * 微信名称的模糊搜索
+     * 日期类型切换的工具方法
      */
-    wxnameClick:function (e){
-        
-    },
-    /**
-     * 日期类型的点击事件
-     */
-    dateClick: function (e) {
-        var _this = this;
-        var id = Number(e.target.dataset.id);
-        var status = this.data.status;
+    changeDateType:function (id){
         switch (id) {
             case 1:
                 this.setData({
@@ -71,6 +63,12 @@ Page({
                 });
                 break;
         };
+    },
+    /**
+     * 根据日期类型获取用户数据
+     */
+    getQueryByDateType:function (id,status){
+        var _this = this;
         var domain = _this.data.currUserName;
         var options = {
             url: config.baseUrl + "/queryByDateType",
@@ -94,6 +92,23 @@ Page({
                 console.log("请求失败");
             }
         })
+    },
+    /**
+     * 微信名称的模糊搜索
+     */
+    wxnameClick:function (e){
+        var id = this.data.backgroundStatus;
+        var status = this.data.status;
+        this.getQueryByDateType(id,status);
+    },
+    /**
+     * 日期类型的点击事件
+     */
+    dateClick: function (e) {
+        var id = Number(e.target.dataset.id);
+        var status = this.data.status;
+        this.changeDateType(id);
+        this.getQueryByDateType(id,status);
     },
     /**
      * 每条数据的点击事件
